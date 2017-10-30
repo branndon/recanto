@@ -56,6 +56,18 @@
 				</a>
 			</div>
 			<div class="col-xs-10 col-sm-10 col-md-10">
+				<div class="menu-sup">
+					<p class="info">Reservas Cel / <i class="fa fa-whatsapp" aria-hidden="true"></i> +55 (11) 0000-0000</p>
+					<button class="reserva">Faça sua reserva</button>
+					<button class="doIt">Do it yourself</button>
+					<a class="social facebook" href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a class="social twitter" href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<a class="social instagram" href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a class="social youtube" href="#" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+				</div>
+
+				<div class="clear"></div>
+
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
 						<div class="navbar-header">
@@ -103,16 +115,14 @@
 	<!-- Slider -->
 	<?php if (is_home()) : ?>
 		<div id="slider">
-			<div class="main">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide"></div>
-						<div class="swiper-slide"></div>
-						<div class="swiper-slide"></div>
-					</div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"></div>
+					<div class="swiper-slide"></div>
+					<div class="swiper-slide"></div>
 				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
 			</div>
 		</div>
 	<?php endif; ?>

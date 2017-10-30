@@ -12,38 +12,6 @@
 	
 	<div class="clear"></div>
 
-	<?php if (is_home() || is_page('sobre') || is_singular('locacoes')) : ?>
-		<div class="_duvidas">
-			<div class="container">
-				<h2 class="tit-border">Tire suas dúvidas</h2>
-				<p class="desc">Fale com o Clube 17</p>
-				<div class="col-md-6">
-					<i class="fa fa-phone" aria-hidden="true"></i>
-					<p>
-						Telefone de contato<br/>
-						<a href="tel:(21) 2274-1429" target="_blank" title="(21) 2274-1429">(21) 2274-1429</a>
-					</p>
-				</div>
-				<div class="col-md-6">
-					<i class="fa fa-phone" aria-hidden="true"></i>
-					<p>
-						Envie um e-mail<br/>
-						<a href="mailto:contato@clube17.com.br" target="_blank" title="contato@clube17.com.br">contato@clube17.com.br</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="_mapa">
-			<div class="localizacao">
-				<h3>Onde estamos</h3>
-				<p>Rua Pacheco Leão, 2038 - Jardim Botânico,<br/> Rio de Janeiro - RJ, 22460-030</p>
-				<p><i class="fa fa-map-marker" aria-hidden="true"></i></p>
-			</div>
-			<div id="map"></div>
-		</div>
-	<?php endif; ?>
-
 	<?php if (is_page('contato')) : ?>
 		<div class="_mapa">
 			<div class="localizacao">
