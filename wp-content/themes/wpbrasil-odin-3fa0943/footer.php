@@ -10,39 +10,35 @@
  */
 ?>
 	
-	<div class="clear"></div>
+	<div class="_reservas">
+		<div class="container">
+			<div class="reserve col-md-4">
+				<h3>Faça sua Reserva</h3><br/>
+				<h3>Entre em Contato</h3>
 
-	<?php if (is_page('contato')) : ?>
-		<div class="_mapa">
-			<div class="localizacao">
-				<h3>Onde estamos</h3>
-				<p>Rua Pacheco Leão, 2038 - Jardim Botânico,<br/> Rio de Janeiro - RJ, 22460-030</p>
-				<p><i class="fa fa-map-marker" aria-hidden="true"></i></p>
+				<p>Digite o seu e-mail abaixo e receba<br/>
+				descontos em diárias.</p>
+				<form>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email_reserve" placeholder="Digite o seu e-mail">
+						<button>OK</button>
+					</div>
+				</form>
 			</div>
-			<div id="map"></div>
+			<div class="media col-md-8">
+				<div class="box _social"></div>
+				<div class="box _facebook">
+					<div class="fb-page" data-href="https://www.facebook.com/recanto4estacoes" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+				</div>
+			</div>
 		</div>
-	<?php endif; ?>
+	</div>
+
+	<div class="clear"></div>
 
 	<footer id="footer" role="contentinfo">
 		<div class="container">
-			<p class="copy">&copy; <?php echo date( 'Y' ); ?> - <?php _e( 'Clube dos Macacos', 'odin' ); ?></p>
-			<nav>
-				<ul>
-					<?php 
-						$menuParameters = array(
-							'menu'				=> 'menu-footer',
-							'container'       	=> false,
-							'echo'            	=> false,
-							'depth'           	=> 0,
-						);
-						echo strip_tags(wp_nav_menu( $menuParameters ), '<li><a>' );
-					?>
-				</ul>
-			</nav>
-
-			<div class="clear"></div>
-
-			<a href="https://aido.com.br/" target="_blank" class="logo-empresa" title="Aido"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-empresa.png" alt="Aido" title="Aido" /></a>
+			<p><?php echo date( 'Y' ); ?> Recanto 4 Estações Igaratá. Todos os direitos reservados. Desenvolvido por <a href="https://spark.adobe.com/page/3KeAJ/" target="_blank" title="RB Comunicação">RB Comunicação.</a></p>
 		</div>
 	</footer>
 

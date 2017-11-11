@@ -38,6 +38,13 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js"></script>
 	<script src="http://maps.google.com/maps/api/js?&key=AIzaSyBMWuoZXh9S-c3wI2OfnAOgx_OoY8XJwPw&callback=initMap"
     async defer></script>
+    <script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -58,9 +65,9 @@
 			<div class="col-xs-10 col-sm-10 col-md-10">
 				<div class="menu-sup">
 					<p class="info">Reservas Cel / <i class="fa fa-whatsapp" aria-hidden="true"></i> +55 (11) 0000-0000</p>
-					<button class="reserva">Faça sua reserva</button>
-					<button class="doIt">Do it yourself</button>
-					<a class="social facebook" href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a class="pages reserva" href="<?php bloginfo( 'siteurl' ); ?>/faca-sua-reserva">Faça sua reserva</a>
+					<a class="pages doIt" href="<?php bloginfo( 'siteurl' ); ?>/do-it">Do it yourself</a>
+					<a class="social facebook" href="https://www.facebook.com/recanto4estacoes/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 					<a class="social twitter" href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 					<a class="social instagram" href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
 					<a class="social youtube" href="#" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
@@ -115,7 +122,7 @@
 	<!-- Slider -->
 	<?php if (is_home()) : ?>
 		<div id="slider">
-			<div class="swiper-container">
+			<div class="swiper-container slider_header">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide"></div>
 					<div class="swiper-slide"></div>

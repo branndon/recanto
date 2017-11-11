@@ -354,4 +354,72 @@ function lista_noticias(){
     wp_reset_postdata();
 }
 
+function lista_depoimentos(){
+    $args = array(
+        'posts_per_page'    => -1,
+        'post_type'         => 'depoimentos',
+        'order'             => 'DESC'
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) {
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                echo '<div class="swiper-slide">';
+					echo '<p>' . get_the_content() . '</p>';
+					echo '<span>' . get_the_title() . '</span>';
+				echo '</div>';
+            }
+    } else {
+        echo '<p class="center-text">Nenhuma depoimento cadastrado.</p>';
+    }
+    
+    wp_reset_postdata();
+}
+
+function lista_home_boxes($post_slug, $post_gallery){
+    $args = array(
+        'posts_per_page'    => 1,
+        'post_type'         => 'home_boxes',
+        'order'             => 'DESC',
+        'name'				=> $post_slug
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) {
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+
+            if ($post_gallery) {
+				echo '<div class="col-sm-6 col-md-6 text">';
+					echo '<h2 class="title">' . get_the_title() . '</h2>';
+					the_content();
+				echo '</div>';
+				echo '<div class="col-sm-6 col-md-6 bg">';
+					echo '<div class="swiper-container">';
+						echo '<div class="swiper-wrapper">';
+							echo '<div class="swiper-slide"></div>';
+							echo '<div class="swiper-slide"></div>';
+							echo '<div class="swiper-slide"></div>';
+						echo '</div>';
+					echo '</div>';
+				echo '</div>';
+            } else {
+				echo '<div class="col-sm-6 col-md-6 bg">';
+				echo '</div>';
+				echo '<div class="col-sm-6 col-md-6 text">';
+					echo '<h2 class="title">' . get_the_title() . '</h2>';
+					the_content();
+				echo '</div>';
+            }
+        }
+    } else {
+        echo '<p class="center-text">Conteúdo não encontrado.</p>';
+    }
+    
+    wp_reset_postdata();
+}
+
 
