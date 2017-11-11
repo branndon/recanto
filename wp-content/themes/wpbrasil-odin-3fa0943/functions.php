@@ -321,6 +321,44 @@ if ( is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
 
+    /**
+     * Gets all images attached to a post
+     * @return string
+     */
+    function wpse_get_images() {
+        global $post;
+        $id = intval( $post->ID );
+        $size = 'medium';
+        $attachments = get_children( array(
+                'post_parent' => $id,
+                'post_status' => 'inherit',
+                'post_type' => 'attachment',
+                'post_mime_type' => 'image',
+                'order' => 'ASC',
+                'orderby' => 'menu_order'
+            ) );
+        if ( empty( $attachments ) )
+                    return '';
+
+        $output = "\n";
+    /**
+     * Loop through each attachment
+     */
+    foreach ( $attachments as $id  => $attachment ) :
+
+        $title = esc_html( $attachment->post_title, 1 );
+        $img = wp_get_attachment_image_src( $id, $size );
+
+        // $output .= '<a class="selector thumb" href="' . esc_url( wp_get_attachment_url( $id ) ) . '" title="' . esc_attr( $title ) . '">';
+        // $output .= '<img class="aligncenter" src="' . esc_url( $img[0] ) . '" alt="' . esc_attr( $title ) . '" title="' . esc_attr( $title ) . '" />';
+        // $output .= '</a>';
+        $output = esc_url( wp_get_attachment_url( $id ) );
+
+    endforeach;
+
+        return $output;
+    }
+
 function lista_noticias(){
     $args = array(
         'posts_per_page'    => 4,
@@ -354,6 +392,7 @@ function lista_noticias(){
     wp_reset_postdata();
 }
 
+// DEPOIMENTOS
 function lista_depoimentos(){
     $args = array(
         'posts_per_page'    => -1,
@@ -378,6 +417,8 @@ function lista_depoimentos(){
     wp_reset_postdata();
 }
 
+
+// BOXES HOME
 function lista_home_boxes($post_slug, $post_gallery){
     $args = array(
         'posts_per_page'    => 1,
@@ -393,6 +434,7 @@ function lista_home_boxes($post_slug, $post_gallery){
             $the_query->the_post();
 
             if ($post_gallery) {
+
 				echo '<div class="col-sm-6 col-md-6 text">';
 					echo '<h2 class="title">' . get_the_title() . '</h2>';
 					the_content();
@@ -400,9 +442,7 @@ function lista_home_boxes($post_slug, $post_gallery){
 				echo '<div class="col-sm-6 col-md-6 bg">';
 					echo '<div class="swiper-container">';
 						echo '<div class="swiper-wrapper">';
-							echo '<div class="swiper-slide"></div>';
-							echo '<div class="swiper-slide"></div>';
-							echo '<div class="swiper-slide"></div>';
+							echo '<div class="swiper-slide" style="background-image:url('. wpse_get_images() .')"></div>';
 						echo '</div>';
 					echo '</div>';
 				echo '</div>';
@@ -417,6 +457,37 @@ function lista_home_boxes($post_slug, $post_gallery){
         }
     } else {
         echo '<p class="center-text">Conteúdo não encontrado.</p>';
+    }
+    
+    wp_reset_postdata();
+}
+
+// SLIDER
+function main_slider(){
+    $args = array(
+        'posts_per_page'    => -1,
+        'post_type'         => 'slider',
+        'order'             => 'DESC'
+    );
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) {
+		echo '<div id="slider">';
+			echo '<div class="swiper-container slider_header">';
+				echo '<div class="swiper-wrapper">';
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+
+						echo '<div class="swiper-slide" style="background-image:url('.get_the_post_thumbnail_url(get_the_ID(), "full").')"></div>';
+					}
+				echo '</div>';
+				echo '<div class="swiper-button-prev"></div>';
+				echo '<div class="swiper-button-next"></div>';
+			echo '</div>';
+		echo '</div>';
+    } else {
+        echo '<center>Nenhuma noticia encontrada.</center>';
     }
     
     wp_reset_postdata();

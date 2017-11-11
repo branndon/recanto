@@ -9,6 +9,8 @@
  * @since 2.2.0
  */
 ?>
+
+	<div class="clear"></div>
 	
 	<div class="_reservas">
 		<div class="container">
@@ -18,7 +20,8 @@
 
 				<p>Digite o seu e-mail abaixo e receba<br/>
 				descontos em diárias.</p>
-				<form>
+
+				<form id="newsletter">
 					<div class="form-group">
 						<input type="text" class="form-control" id="email_reserve" placeholder="Digite o seu e-mail">
 						<button>OK</button>

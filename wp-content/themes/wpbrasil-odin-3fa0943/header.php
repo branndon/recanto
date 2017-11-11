@@ -120,19 +120,11 @@
 	</header>
 
 	<!-- Slider -->
-	<?php if (is_home()) : ?>
-		<div id="slider">
-			<div class="swiper-container slider_header">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide"></div>
-					<div class="swiper-slide"></div>
-					<div class="swiper-slide"></div>
-				</div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-			</div>
-		</div>
-	<?php endif; ?>
+	<?php
+		if (is_home()){
+			main_slider();
+		}
+	?>
 
 
 

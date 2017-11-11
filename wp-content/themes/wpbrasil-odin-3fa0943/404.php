@@ -8,12 +8,12 @@
 
 get_header(); ?>
 
-	<div class="_header-pages">
+	<!-- <div class="_header-pages">
 		<div class="container">
-			<?php get_template_part('breadcrumb'); ?>
+			<?php // get_template_part('breadcrumb'); ?>
 			<h1>Notícias</h1>
 		</div>
-	</div>
+	</div> -->
 
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 		<div class="page-content">

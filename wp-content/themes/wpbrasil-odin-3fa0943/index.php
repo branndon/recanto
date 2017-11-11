@@ -88,7 +88,7 @@
 			<div class="col-sm-6 col-md-6">
 				<h2 class="tit-def">Contate-nos</h2>
 				<p>Seja bem-vindo. Este é o seu espaço para receber promoções e tirar dúvidas. Fale com a gente!</p>
-				<form>
+				<form id="contato">
 
 					<div class="form-group">
 						<label for="nome">Nome</label>
